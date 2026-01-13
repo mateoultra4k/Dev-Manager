@@ -1,51 +1,50 @@
 #!/bin/bash
 
-# Colores para la terminal
+# Colores para una interfaz elegante
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+YELLOW='\033[1;33m'
+NC='\033[0m' 
 
-echo -e "${BLUE}--- Instalador de DEV-MANAGER (Patricio Rodriguez) ---${NC}"
+echo -e "${BLUE}==============================================${NC}"
+echo -e "${GREEN}    INSTALADOR DE DEV-MANAGER v1.0          ${NC}"
+echo -e "${BLUE}==============================================${NC}"
 
-# 1. VERIFICACIÓN DE DEPENDENCIAS (Librerías FTXUI)
-echo -e "Verificando dependencias del sistema..."
-MISSING=()
+# 1. VALIDACIÓN DE DEPENDENCIAS
+echo -e "\n${YELLOW}🔍 Verificando librerías del sistema...${NC}"
 
+# Buscamos FTXUI en las rutas estándar de Linux
 if [ ! -f /usr/local/lib/libftxui-screen.a ] && [ ! -f /usr/lib/libftxui-screen.so ]; then
-    MISSING+=("FTXUI (Librerías de interfaz)")
-fi
-
-if ! command -v g++ &> /dev/null; then
-    MISSING+=("g++ (Compilador de C++)")
-fi
-
-# Si faltan cosas, informar al usuario
-if [ ${#MISSING[@]} -ne 0 ]; then
-    echo -e "${RED}ERROR: Faltan componentes necesarios para ejecutar el programa:${NC}"
-    for item in "${MISSING[@]}"; do
-        echo -e "  - $item"
-    done
-    echo -e "\n${BLUE}¿Cómo obtenerlos?${NC}"
-    echo -e "Visita: https://github.com/ArthurSonzogni/FTXUI para instalar la librería visual."
-    echo -e "O instala en Debian/Ubuntu: sudo apt install build-essential cmake"
+    echo -e "${RED}❌ Error: No se encontró la librería FTXUI.${NC}"
+    echo -e "Para usar este programa, necesitas instalar FTXUI primero."
+    echo -e "Puedes clonarlo de: https://github.com/ArthurSonzogni/FTXUI"
+    echo -e "Instrucciones rápidas: mkdir build && cd build && cmake .. && make && sudo make install"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Todas las dependencias están presentes.${NC}"
+echo -e "${GREEN}✅ Librerías detectadas correctamente.${NC}"
 
-# 2. DESCARGA DEL BINARIO
-echo -e "Descargando binario desde GitHub..."
-# Reemplaza 'tu-usuario' con tu nombre de usuario real de GitHub
-REPO_URL="https://github.com/tu-usuario/dev-manager/raw/main/dev-manager"
+# 2. DESCARGA E INSTALACIÓN
+echo -e "\n${YELLOW}📥 Descargando binario desde GitHub...${NC}"
 
-curl -L -o dev-manager $REPO_URL
+# Ruta directa al archivo binario en tu repo
+BINARY_URL="https://github.com/mateoultra4k/Dev-Manager/raw/main/dev-manager"
 
-# 3. PERMISOS Y UBICACIÓN
-chmod +x dev-manager
-sudo mv dev-manager /usr/local/bin/dev-manager
+# Descargamos en una carpeta temporal
+curl -L -o /tmp/dev-manager $BINARY_URL
 
-echo -e "${GREEN}--------------------------------------------------${NC}"
-echo -e "${GREEN}INSTALACIÓN COMPLETADA EXITOSAMENTE${NC}"
-echo -e "Ahora puedes ejecutar el programa escribiendo: ${BLUE}dev-manager${NC}"
-echo -e "${GREEN}--------------------------------------------------${NC}"
+if [ $? -ne 0 ]; then
+    echo -e "${RED}❌ Falló la descarga. Revisa tu conexión a internet.${NC}"
+    exit 1
+fi
+
+# 3. PERMISOS Y ACCESO GLOBAL
+echo -e "${YELLOW}⚙️  Configurando acceso global...${NC}"
+chmod +x /tmp/dev-manager
+sudo mv /tmp/dev-manager /usr/local/bin/dev-manager
+
+echo -e "\n${BLUE}==============================================${NC}"
+echo -e "${GREEN}🎉 ¡INSTALACIÓN COMPLETADA EXITOSAMENTE!${NC}"
+echo -e "Escribe ${YELLOW}dev-manager${GREEN} en tu terminal para comenzar.${NC}"
+echo -e "${BLUE}==============================================${NC}"
