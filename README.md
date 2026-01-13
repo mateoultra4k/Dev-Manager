@@ -29,3 +29,24 @@ Ejecuta el siguiente comando en tu terminal:
 
 ```bash
 curl -sSL [https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh](https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh) | bash
+
+## 📋 Requisitos del Sistema
+
+Para que el programa funcione correctamente, el instalador verificará la existencia de las siguientes dependencias en tu equipo:
+
+* **FTXUI Libraries:** Las librerías de interfaz gráfica para terminal (necesarias para la visualización de la TUI).
+* **G++ / Build Essentials:** Herramientas de compilación para garantizar el soporte de ejecución de **C++17**.
+
+> 💡 **Nota:** Si no cuentas con estos requisitos, el instalador te indicará exactamente qué falta y cómo obtenerlo de forma sencilla.
+
+---
+
+## ⌨️ Atajos de Teclado
+
+| Tecla | Acción |
+| :--- | :--- |
+| **TAB** | Alternar entre proyectos de **Rust** y **Go** |
+| **ENTER** | Ver detalles técnicos e información de construcción del binario |
+| **D** | Eliminar el binario seleccionado (incluye ventana de confirmación) |
+| **A** | Ver créditos y versión del software (About) |
+| **Q** | Salir de la aplicación de forma segura |
