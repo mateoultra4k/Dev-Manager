@@ -23,13 +23,6 @@ Desarrollado en **Puerto Montt, Chile**, en colaboración con **Gemini**.
 
 Puedes instalar **Dev-Manager** en cualquier distribución basada en Debian/Ubuntu (como **elementaryOS**) con una sola línea de comando. El instalador verificará automáticamente si tienes las librerías necesarias.
 
-
-
-Ejecuta el siguiente comando en tu terminal:
-
-```bash
-curl -sSL [https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh](https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh) | bash
-
 ## 📋 Requisitos del Sistema
 
 Para que el programa funcione correctamente, el instalador verificará la existencia de las siguientes dependencias en tu equipo:
@@ -50,3 +43,10 @@ Para que el programa funcione correctamente, el instalador verificará la existe
 | **D** | Eliminar el binario seleccionado (incluye ventana de confirmación) |
 | **A** | Ver créditos y versión del software (About) |
 | **Q** | Salir de la aplicación de forma segura |
+
+Ejecuta el siguiente comando en tu terminal:
+
+```bash
+curl -sSL [https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh](https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh) | bash
+
+
