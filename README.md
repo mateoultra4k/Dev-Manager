@@ -70,6 +70,6 @@ Cualquier feedback desde Chile, Nicaragua o cualquier rincón del mundo es aprec
 Ejecuta el siguiente comando en tu terminal:
 
 ```bash
-curl -sSL [https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh](https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh) | bash
+curl -sSL https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/install.sh | bash
 
 
