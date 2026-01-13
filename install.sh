@@ -29,7 +29,7 @@ echo -e "${GREEN}✅ Librerías detectadas correctamente.${NC}"
 echo -e "\n${YELLOW}📥 Descargando binario desde GitHub...${NC}"
 
 # Ruta directa al archivo binario en tu repo
-BINARY_URL="https://github.com/mateoultra4k/Dev-Manager/raw/main/dev-manager"
+BINARY_URL="https://raw.githubusercontent.com/mateoultra4k/Dev-Manager/main/dev-manager"
 
 # Descargamos en una carpeta temporal
 curl -L -o /tmp/dev-manager $BINARY_URL
